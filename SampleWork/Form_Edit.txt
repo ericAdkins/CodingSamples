@@ -1,0 +1,495 @@
+VERSION 1.0 CLASS
+BEGIN
+  MultiUse = -1  'True
+END
+Attribute VB_Name = "Form_Edit"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Private Sub Form_Load()
+        
+        hide
+        Me.DistrictBox.visible = True
+        Me.District_Label.visible = True
+        Me.CountyBOX.visible = True
+        Me.County_Label.visible = True
+        
+End Sub
+Private Sub DistrictBox_AfterUpdate()
+    Dim combo As String
+    combo = Me.DistrictBox.Text
+    
+    Dim result As Integer
+    result = MsgBox("Is this a previos project?", vbYesNo, "New or Existing Project")
+    Select Case result
+        Case 7 'NO
+            'MsgBox "Please make neccisary edits and sumbit changes.", , "Action Required"
+            DistrictBox.Value = ""
+            CloseMeAndOpenMain Me
+            
+           
+        Case 6 'Yes
+        
+                    Select Case combo
+                        Case "Alamosa"
+                            choice = "Alamosa Dist"
+                            districtChange (choice)
+                            
+                          
+                        Case "Boulder"
+                            choice = "Boulder Dist"
+                            districtChange (choice)
+                            
+                        Case "Canon City"
+                            choice = "Canon City Dist"
+                            districtChange (choice)
+                            
+                        Case "Durango"
+                            choice = "Durango Dist"
+                            districtChange (choice)
+                            
+                        Case "Fort Collins"
+                            choice = "Fort Collins Dist"
+                            districtChange (choice)
+                            
+                        Case "Fort Morgan"
+                            choice = "Fort Morgan Dist"
+                            districtChange (choice)
+                            
+                        Case "Franktown"
+                            choice = "Franktown Dist"
+                            districtChange (choice)
+                            
+                        Case "Golden"
+                            choice = "Golden Dist"
+                            districtChange (choice)
+                            
+                        Case "Granby"
+                            choice = "Granby Dist"
+                            districtChange (choice)
+                            
+                        Case "Grand Junction"
+                            choice = "Grand Junction Dist"
+                            districtChange (choice)
+                            
+                        Case "Gunnison"
+                            choice = "Gunnison Dist"
+                            districtChange (choice)
+                            
+                        Case "La Junta"
+                            choice = "La Junta Dist"
+                            districtChange (choice)
+                        
+                        Case "La Veta"
+                            choice = "La Veta Dist"
+                            districtChange (choice)
+                            
+                        Case "Montrose"
+                            choice = "Montrose Dist"
+                            districtChange (choice)
+                            
+                        Case "Salida"
+                            choice = "Salida Dist"
+                            districtChange (choice)
+                            
+                        Case "Steamboat Springs"
+                            choice = "Steamboat Springs Dist"
+                            districtChange (choice)
+                            
+                        Case "Woodland Park"
+                            choice = "Woodland Park Dist"
+                            districtChange (choice)
+
+                            
+                      End Select
+                    End Select
+End Sub
+
+Sub districtChange(ByRef choice As String)
+        
+       ' MsgBox "Made it to District CHANGE"
+        CountyBOX.RowSourceType = "Table/Query"
+        Forms!Edit!CountyBOX.RowSource = choice
+        
+End Sub
+Sub countyChange(ByRef pick As String)
+      'MsgBox "countyChange worked " & pick
+      Forms!Edit.RecordSource = pick
+      MsgBox "The recordSource value is " & pick
+End Sub
+
+Sub CountyBOX_Change()
+Dim combo2 As String
+combo2 = Me.CountyBOX.Text
+
+    Select Case combo2
+        Case "Adams"
+            pick = "Adams"
+            countyChange (pick)
+            show
+        Case "Alamosa"
+            pick = "Alamosa"
+            countyChange (pick)
+            show
+        Case "Arapahoe"
+            pick = "Arapahoe"
+            countyChange (pick)
+            show
+        Case "Archuleta"
+            pick = "Archuleta"
+            countyChange (pick)
+            show
+        Case "Baca"
+            pick = "Baca"
+            countyChange (pick)
+            show
+        Case "Bent"
+            pick = "Bent"
+            countyChange (pick)
+            show
+        Case "Boulder"
+            pick = "Boulder"
+            countyChange (pick)
+            show
+        Case "Broomfield"
+            pick = "Broomfield"
+            countyChange (pick)
+            show
+        Case "Chaffee"
+            pick = "Chaffee"
+            countyChange (pick)
+            show
+        Case "Cheyenne"
+            pick = "Cheyenne"
+            countyChange (pick)
+            show
+        Case "Clear Creek"
+            pick = "Clear Creek"
+            countyChange (pick)
+            show
+        Case "Conejos"
+            pick = "Conejos"
+            countyChange (pick)
+            show
+        Case "Costilla"
+            pick = "Costilla"
+            countyChange (pick)
+            show
+        Case "Crowley"
+            pick = "Crowley"
+            countyChange (pick)
+            show
+        Case "Custer"
+            pick = "Custer"
+            countyChange (pick)
+            show
+        Case "Delta"
+            pick = "Delta"
+            countyChange (pick)
+            show
+        Case "Denver"
+            pick = "Denver"
+            countyChange (pick)
+            show
+        Case "Dolores"
+            pick = "Dolores"
+            countyChange (pick)
+            show
+        Case "Douglas"
+           pick = "Douglas"
+            countyChange (pick)
+            show
+        Case "Eagle"
+            pick = "Eagle"
+            countyChange (pick)
+            show
+        Case "El Paso"
+            pick = "El Paso"
+            countyChange (pick)
+            show
+        Case "Elbert"
+            pick = "Elbert"
+            countyChange (pick)
+            show
+        Case "Fremont"
+            pick = "Fremont"
+            countyChange (pick)
+            show
+        Case "Garfield"
+            pick = "Garfield"
+            countyChange (pick)
+            show
+        Case "Gilpin"
+            pick = "Gilpin"
+            countyChange (pick)
+            show
+         Case "Grand"
+            pick = "Grand"
+            countyChange (pick)
+            show
+        Case "Gunnison"
+            pick = "Gunnison"
+            countyChange (pick)
+            show
+        Case "Hinsdale"
+            pick = "Hinsdale"
+            countyChange (pick)
+            show
+        Case "Huerfano"
+            pick = "Huerfano"
+            countyChange (pick)
+            show
+        Case "Jackson"
+            pick = "Jackson"
+            countyChange (pick)
+            show
+        Case "Jefferson"
+            pick = "Jefferson"
+            countyChange (pick)
+            show
+        Case "Kiowa"
+            pick = "Kiowa"
+            countyChange (pick)
+            show
+        Case "Kit Carson"
+            pick = "Kit Carson"
+            countyChange (pick)
+            show
+        Case "La Plata"
+            pick = "La Plata"
+            countyChange (pick)
+            show
+        Case "Lake"
+            pick = "Lake"
+            countyChange (pick)
+            show
+        Case "Larimer"
+            pick = "Larimer"
+            countyChange (pick)
+            show
+        Case "Las Animas"
+            pick = "Las Animas"
+            countyChange (pick)
+            show
+        Case "Logan"
+            pick = "Logan"
+            countyChange (pick)
+            show
+        Case "Mesa"
+            pick = "Mesa"
+            countyChange (pick)
+            show
+        Case "Mineral"
+            pick = "Mineral"
+            countyChange (pick)
+            show
+        Case "Moffat"
+            pick = "Moffat"
+            countyChange (pick)
+            show
+        Case "Montezuma"
+            pick = "Montezuma"
+            countyChange (pick)
+            show
+        Case "Montrose"
+            pick = "Montrose"
+            countyChange (pick)
+            show
+        Case "Morgan"
+            pick = "Morgan"
+            countyChange (pick)
+            show
+        Case "Otero"
+            pick = "Otero"
+            countyChange (pick)
+            show
+        Case "Ouray"
+            pick = "Ouray"
+            countyChange (pick)
+            show
+        Case "Park"
+            pick = "Park"
+            countyChange (pick)
+            show
+        Case "Phillips"
+            pick = "Phillips"
+            countyChange (pick)
+            show
+        Case "Pitkin"
+            pick = "Pitkin"
+            countyChange (pick)
+            show
+        Case "Prowers"
+            pick = "Prowers"
+            countyChange (pick)
+            show
+        Case "Pueblo"
+            pick = "Pueblo"
+            countyChange (pick)
+            show
+        Case "Rio Blanco"
+            pick = "Rio Blanco"
+            countyChange (pick)
+            show
+        Case "Rio Grande"
+            pick = "Rio Grande"
+            countyChange (pick)
+            show
+        Case "Routt"
+            pick = "Routt"
+            countyChange (pick)
+            show
+        Case "Saguache"
+            pick = "Saguache"
+            countyChange (pick)
+            show
+        Case "San Juan"
+            pick = "San Miguel"
+            countyChange (pick)
+            show
+        Case "San Miguel"
+            pick = "San Miguel"
+            countyChange (pick)
+            show
+        Case "Sedgwick"
+            pick = "Sedgwick"
+            countyChange (pick)
+            show
+        Case "Teller"
+            pick = "Teller"
+            countyChange (pick)
+            show
+        Case "Washington"
+            pick = "Washington"
+            countyChange (pick)
+            show
+        Case "Weld"
+            pick = "Weld"
+            countyChange (pick)
+            show
+        Case "Yuma"
+            pick = "Yuma"
+            countyChange (pick)
+            show
+
+    
+        Case Else
+            MsgBox "You missed " & combo2
+                    
+    End Select
+End Sub
+
+Sub ClearControlFormatting()
+
+    Dim ctrl As Control
+    
+    For Each ctrl In Me.Controls
+        If ctrl.Tag = "FILL" Then
+            ctrl.BackColor = vbWhite
+        End If
+    Next
+End Sub
+
+Private Sub Form_Current()
+    ClearControlFormatting
+End Sub
+Sub hide()
+
+        Dim ctrl As Control
+        For Each ctrl In Me.Controls
+            ctrl.visible = False
+        Next
+    
+End Sub
+Sub show()
+
+        Dim ctrl As Control
+        For Each ctrl In Me.Controls
+            ctrl.visible = True
+        Next
+        
+    
+End Sub
+
+Function CheckForEmpty() As Boolean
+
+    CheckForEmpty = True
+    ClearControlFormatting
+    
+    Dim ctrl As Control
+    
+    For Each ctrl In Me.Controls
+        If ctrl.Tag = "Fill" Then
+            If IsNull(ctrl) Or Len(ctrl) = 0 Then
+                ctrl.BackColor = vbRed
+                CheckForEmpty = False
+            End If
+        End If
+    Next
+End Function
+
+Private Sub Save_Click()
+                
+    Dim Save As Integer
+    Save = MsgBox("Exit and save?", vbYesNo, "Warning")
+    Select Case Save
+        Case 7 'NO
+            'DoCmd.RunCommand acCmdSaveRecord
+            Forms!Edit!CountyBOX.SetFocus
+           
+       Case 6 'Yes
+        
+            If CheckForEmpty = False Then
+                MsgBox "You cannot Save an empty form. Please fill out Red Cells.", , "Empty Form Error"
+                
+                
+            Else
+                DoCmd.Close acForm, Me.Name, acSaveYes
+                DoCmd.Quit
+            End If
+            
+    End Select
+End Sub
+
+Private Sub Close_Click()
+  
+    
+    Dim question As Integer
+    question = MsgBox("Exit without saving?", vbYesNo, "Warning")
+    Select Case question
+        Case 7 'NO
+            Call Save_Click
+            
+           
+        Case 6 'Yes
+            DoCmd.Close acForm, Me.Name
+            DoCmd.Quit
+            
+    End Select
+
+End Sub
+Public Sub RefreshEdit(frmMe As Form)
+    ClearControlFormatting
+        
+                    CountyBOX.RowSourceType = "Value List"
+                                        Dim i As Integer
+                                        For i = Me.CountyBOX.ListCount - 1 To 0 Step -1
+                                           Me.CountyBOX.RemoveItem (i)
+                                        Next i
+                                        Me.CountyBOX = Null
+    
+    DoCmd.Close acForm, frmMe.Name
+    DoCmd.OpenForm "Edit"
+'Replace this with the actual name of your Main form
+End Sub
+
+Private Sub Clear_Form_Click()
+  RefreshEdit Me
+End Sub
+
+Private Sub Form_Open(Cancel As Integer)
+    RestoreForm Me.Form.Name
+End Sub
+
